@@ -46,32 +46,40 @@ nav a:hover {
 /* ===== Layout ===== */
 .container {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 20px;
     padding: 20px;
 }
 
-.column {
+/* ===== Sidebar ===== */
+.sidebar {
     background: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 12px;
+    height: fit-content;
     box-shadow: 0 3px 8px rgba(0,0,0,0.08);
 }
 
-/* ===== Card UI ===== */
+/* ===== Main Content ===== */
+.main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* ===== Card ===== */
 .card {
-    background: #fff;
+    background: white;
     padding: 15px;
-    margin-bottom: 15px;
     border-radius: 12px;
-    transition: all 0.3s ease;
+    transition: 0.3s;
     border: 1px solid #eee;
 }
 
-/* hover 小動畫 */
+/* hover 動畫 */
 .card:hover {
-    transform: translateY(-5px) scale(1.01);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 /* repo 按鈕 */
@@ -97,6 +105,7 @@ footer {
     padding: 15px;
     background: #222;
     color: white;
+    margin-top: 20px;
 }
 
 /* ===== RWD ===== */
@@ -106,7 +115,7 @@ footer {
     }
 
     nav ul {
-        display: none; /* 簡化手機版 */
+        display: none;
     }
 }
 </style>
@@ -124,11 +133,10 @@ footer {
     </ul>
 </nav>
 
-<!-- 三欄 -->
 <div class="container">
 
-    <!-- 左欄 -->
-    <div class="column">
+    <!-- 左側欄 -->
+    <div class="sidebar">
         <h2>關於我</h2>
         <p>這裡寫你的簡介</p>
 
@@ -138,50 +146,35 @@ footer {
             <li>PHP</li>
             <li>JavaScript</li>
         </ul>
+
+        <h3>聯絡</h3>
+        <p>Email: your@email.com</p>
     </div>
 
-    <!-- 中間（主內容） -->
-    <div class="column">
+    <!-- 右側主內容 -->
+    <div class="main">
 
-        <h2>作品集</h2>
-
-        <!-- 專案卡片 1 -->
+        <!-- 卡片 1 -->
         <div class="card">
             <h3>專案名稱 1</h3>
-            <p>這裡放專案簡介，例如做了什麼、用什麼技術。</p>
-
-            <!-- repo 預留 -->
+            <p>簡單描述你的專案</p>
             <a href="#" class="repo-btn">View Repo</a>
         </div>
 
-        <!-- 專案卡片 2 -->
+        <!-- 卡片 2 -->
         <div class="card">
             <h3>專案名稱 2</h3>
-            <p>可以放區塊鏈 / 系統 / 網站專案</p>
-
+            <p>例如你的區塊鏈改寫專案</p>
             <a href="#" class="repo-btn">View Repo</a>
         </div>
 
-        <!-- 專案卡片 3 -->
+        <!-- 卡片 3 -->
         <div class="card">
             <h3>專案名稱 3</h3>
-            <p>之後新增直接複製這個 card 就好</p>
-
+            <p>之後直接複製這塊就能新增</p>
             <a href="#" class="repo-btn">View Repo</a>
         </div>
 
-    </div>
-
-    <!-- 右欄 -->
-    <div class="column">
-        <h2>聯絡我</h2>
-        <p>Email: your@email.com</p>
-
-        <h3>連結</h3>
-        <ul>
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">LinkedIn</a></li>
-        </ul>
     </div>
 
 </div>

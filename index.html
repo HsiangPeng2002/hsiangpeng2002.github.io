@@ -11,8 +11,18 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background: #f5f5f5;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+       
+        body.fade-in {
+            opacity: 1;
         }
 
+        body.fade-out {
+            opacity: 0;
+        }
+        
         /* ===== Navbar ===== */
         nav {
             background: #222;
@@ -182,6 +192,7 @@
                 display: none;
             }
         }
+        
     </style>
 </head>
 
@@ -229,8 +240,8 @@
                 <li>產品與作品測試文件</li>
             </ul>
 
-            <h3>聯絡</h3>
-            <p>Email: your@email.com</p>
+            <h3>Email</h3>
+            <p>alenpeng2002@gmail.com</p>
 
             <h3>連結</h3>
             <ul>
@@ -261,7 +272,7 @@
                 <p>
                     <strong>長庚大學112學年度資訊工程學系暨人工智慧學士學位學程聯合畢業專題展 第二名​</strong>
                 </p>
-                <a href="#" class="repo-btn">View More</a>
+                <a href="project1.html" class="repo-btn">View More</a>
             </div>
 
             <div class="card project2">
@@ -294,6 +305,30 @@
         <p>© 2026 Your Name</p>
     </footer>
 
+    <script>
+        // 進場（頁面載入）
+        window.addEventListener("load", () => {
+            document.body.classList.add("fade-in");
+        });
+
+        // 點擊連結時做淡出
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function (e) {
+                const href = this.getAttribute("href");
+
+                // 避免 # 或新分頁
+                if (!href || href.startsWith("#") || this.target === "_blank") return;
+
+                e.preventDefault();
+                document.body.classList.remove("fade-in");
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300); // 跟 CSS 時間對齊
+            });
+        });
+    </script>
 </body>
 
 </html>

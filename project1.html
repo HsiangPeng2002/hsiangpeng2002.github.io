@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <title>Alen Peng's Personal Website</title>
 
     <style>
@@ -139,16 +140,40 @@
                 display: none;
             }
         }
+
+        .swiper {
+            max-width: 700px;
+            height: 700px;
+            margin: 20px auto; /* 置中 */
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 按鈕美化 */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white;
+        }
+
     </style>
 </head>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <body>
 
     <!-- Navbar -->
     <nav>
-        <div class="logo">My Portfolio</div>
+        <div class="logo">彭翔</div>
         <ul>
             <li><a href="index.html">首頁</a></li>
+            <li><a href="project1_en.html">中文/English</a></li>
         </ul>
     </nav>
 
@@ -199,23 +224,33 @@
         <!-- 右側（作品） -->
         <div class="main">
             <h1>非侵入式牙齒咬合與咀嚼能力評估系統</h1>
-            <div class="card">
-                <p>具備系統開發、Web 應用、資料庫與 AI 專題實作經驗之資訊工程學士新鮮人</p>
-
-                <p>熟悉 C++、Python 與 Web 技術（PHP / MySQL / HTML / CSS / JavaScript），並能進行 Docker 容器化系統架構規劃</p>
-
-                <p>曾於全國性競賽中獲獎，具備從需求分析、系統設計、實作到測試文件撰寫之完整專案經驗，能快速學習並穩定產出</p>
+            
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./mouth.jpeg"></div>
+                    <div class="swiper-slide"><img src="./cookie.jpg"></div>
+                    <div class="swiper-slide"><img src="./gum.jpg"></div>
+                </div>
+            
+                <!-- 左右按鈕 -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
 
-            
-
-
+            <div class="card">
+                <p>撰寫競賽企畫書、設計規格書、作品測試文件</p>
+                <p>提出分析顏色混合情形做法並實作</p>
+                <p>訓練牙齒辨識模型、蒐集資料集 (yoloV5)</p>
+                <p>訓練餅乾碎塊面積辨識模型、蒐集資料集 (yoloV5)</p>
+                <p>規劃架構並建立、更新、維護資料庫 (mySQL)</p>
+                <p>前端版面撰寫、維護 (PHP)</p>
+            </div>
         </div>
 
     </div>
 
     <footer>
-        <p>© 2026 Your Name</p>
+        <p>© 2026 Hsiang Peng</p>
     </footer>
 
     <script>
@@ -241,6 +276,21 @@
                 }, 300); // 跟 CSS 時間對齊
             });
         });
+
+        const swiper = new Swiper(".mySwiper", {
+            loop: true,
+            speed: 800,
+
+            autoplay: {
+                delay: 3000,
+                isableOnInteraction: false,
+        },
+
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+        },
+    });
     </script>
 </body>
 

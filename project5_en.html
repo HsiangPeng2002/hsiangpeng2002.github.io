@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alen Peng's Personal Website</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        body.fade-in {
+            opacity: 1;
+        }
+
+        body.fade-out {
+            opacity: 0;
+        }
+
+        /* ===== Navbar ===== */
+        nav {
+            background: #222;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 20px;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00c3ff;
+        }
+
+        /* ===== Layout ===== */
+        .container {
+            display: grid;
+            grid-template-columns: 240px minmax(0, 900px);
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+        }
+
+        /* ===== Sidebar ===== */
+        .sidebar {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+            max-width: 240px;
+        }
+
+        .sidebar img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto 15px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        /* ===== Main ===== */
+        .main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== Card UI ===== */
+        .card {
+            position: relative;
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #222;
+            color: white;
+        }
+
+        /* ===== RWD ===== */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Alen Peng</div>
+        <ul>
+            <li><a href="index_en.html">Home</a></li>
+            <li><a href="project5.html">Language</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <img src="./personal.jpg" />
+
+            <h3>Education</h3>
+            <p>Bachelor of Computer Science, Chang Gung University</p>
+
+            <h3>Skills</h3>
+
+            <h4>Programming Languages</h4>
+            <ul>
+                <li>C++</li>
+                <li>Python</li>
+                <li>HTML / CSS / JavaScript</li>
+                <li>PHP</li>
+            </ul>
+
+            <h4>Systems & Databases</h4>
+            <ul>
+                <li>MySQL (Database design, CRUD operations, maintenance)</li>
+                <li>Docker / Container (Ubuntu)</li>
+                <li>Full-stack integration</li>
+            </ul>
+
+            <h4>AI / Data & Models</h4>
+            <ul>
+                <li>Web scraping with Python</li>
+                <li>YOLOv5 image recognition model training</li>
+            </ul>
+
+            <h4>Software Engineering</h4>
+            <ul>
+                <li>Software Requirement Specification (SRS)</li>
+                <li>System Design Documents</li>
+                <li>Testing Documentation</li>
+            </ul>
+
+            <h3>Email</h3>
+            <p>alenpeng2002@gmail.com</p>
+
+            <h3>Links</h3>
+            <ul>
+                <li><a href="#">GitHub</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+
+        <!-- Main -->
+        <div class="main">
+            <h1>Chinese Article Outline Generation Model (with Docker)</h1>
+
+            <div class="card">
+                <p>Designed and configured Docker and container architecture (Ubuntu)</p>
+                <p>Developed web scraping programs (Python)</p>
+                <p>Designed, built, updated, and maintained databases (MySQL)</p>
+                <p>Developed and maintained frontend interfaces (PHP)</p>
+                <p>Trained a Chinese article outline generation model</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Hsiang Peng</p>
+    </footer>
+
+    <script>
+        window.addEventListener("load", () => {
+            document.body.classList.add("fade-in");
+        });
+
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function (e) {
+                const href = this.getAttribute("href");
+
+                if (!href || href.startsWith("#") || this.target === "_blank") return;
+
+                e.preventDefault();
+                document.body.classList.remove("fade-in");
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
